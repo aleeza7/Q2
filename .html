@@ -1,0 +1,39 @@
+<html> 
+<head>
+<script>
+  var currentInput = ""
+  
+  function inputChange()
+    {
+         currentInput = document.getElementById("input1").value; 
+      document.getElementById("paragraph1").innerHTML = "They typed" + currentInput.length + "letters in me;"
+   
+    }
+
+  function buttonPress()
+    {
+    document.getElementById("paragraph1").innerHTML = currentInput.substring(4)
+    }
+  
+</script>
+
+
+  
+</head>
+  <body>
+    
+    <input id="input1" onkeypress="inputChange();">
+    <button id="button1" onclick="buttonPress();">
+    Push!
+      
+    </button>
+    <p id="paragraph1"> 
+    A message from me!
+    
+    </p>
+
+    
+
+    
+  </body>
+</html>
