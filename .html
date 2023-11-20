@@ -1,11 +1,75 @@
 <html> 
 <head>
+  <style> 
+    body {
+   align-content: center;  
+        background-color: #680000;
+        color: white;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display:grid;
+
+        text-align: center;
+         font-size: 60px;
+
+         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+         gap: 10px;
+
+         height: 99vh;
+         width: 99vw;
+    }
+
+    .input1 {
+        grid-row-start: 1;
+          grid-row-end: 3;
+          grid-column-start: 2;
+          grid-column-end: 4;
+          }
+    
+     .button2 {
+        grid-row-start: 3;
+          grid-row-end: 5;
+          grid-column-start: 2;
+          grid-column-end: 3;
+     }
+     .button3 {
+        grid-row-start: 3;
+          grid-row-end: 5;
+          grid-column-start: 3;
+          grid-column-end: 4;
+     }
+        .button4 {
+        grid-row-start: 5;
+          grid-row-end: 7;
+          grid-column-start: 2;
+          grid-column-end: 3;
+     }
+        .button5 {
+        grid-row-start: 5;
+          grid-row-end: 7;
+          grid-column-start: 3;
+          grid-column-end: 4;
+     }
+        .button6 {
+        grid-row-start: 7;
+          grid-row-end: 9;
+          grid-column-start: 2;
+          grid-column-end: 3;
+     }
+    .button7 {
+        grid-row-start: 7;
+          grid-row-end: 9;
+          grid-column-start: 3;
+          grid-column-end: 4;
+     }
+    
+    </style> 
 <script>
   var currentInput = ""
   
   function inputChange()
     {
-         currentInput = document.getElementById("input1").value; 
+         currentInput = document.getElementById("input2").value; 
       document.getElementById("paragraph1").innerHTML = "They typed" + currentInput.length + "letters in me;"
    
     }
@@ -21,17 +85,52 @@
   
 </head>
   <body>
-    
-    <input id="input1" onkeypress="inputChange();">
+
+    <div class = "input1">
+    <input id="input2" onkeypress="inputChange();">
     <button id="button1" onclick="buttonPress();">
     Push!
-      
+    </div> 
+    
+ 
     </button>
     <p id="paragraph1"> 
     A message from me!
-    
     </p>
+   </div>
 
+    <div class = "button2">
+      <button id = "buttonTwo"> Add to Beginning
+      </button>
+    </div>
+
+      <div class = "button3">   
+        <button id = "buttonThree"> Delete from Beginning
+        
+        </button>
+      </div>
+
+      <div class = "button4">
+        <button id = "buttonFour"> Add to Middle
+          
+        </button>
+      </div>
+     
+    <div class = "button5">
+      <button id = "buttonFive"> Delete from Middle
+      </button>
+    </div>
+
+        <div class = "button6"> 
+          <button id = "buttonSix"> Add to End 
+          </button>
+        </div>
+
+    <div class = "button7"> 
+  <button id = "buttonSeven"> Delete from End
+  </button>
+    </div>
+    
     
 
     
