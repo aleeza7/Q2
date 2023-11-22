@@ -9,7 +9,7 @@
         display:grid;
 
         text-align: center;
-         font-size: 200px;
+         font-size: 70px;
 
          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
@@ -73,7 +73,7 @@
     </style> 
 <script>
   var currentInput = ""
-  
+  var mw = "magic" 
   function AddBeginning()
     {
          currentInput = document.getElementById("input2").value; 
@@ -83,13 +83,24 @@
     function AddEnd()
     {
          currentInput = document.getElementById("input2").value; 
-      document.getElementById("paragraph1").innerHTML = + "magic" + currentInput.length; 
+      document.getElementById("paragraph1").innerHTML = + "magic" + mw.length; 
+  }
 
-  function buttonPress()
+        function subtractBeginning()
     {
-    document.getElementById("paragraph1").innerHTML = currentInput.substring(4);
-    }
+       document.getElementById("paragraph1").innerHTML = ""
+        mw = mw.substring(1,6);
+    document.getElementById("paragraph1").innerHTML = mw
   
+    }
+
+       function subtractEnd()
+    {
+       document.getElementById("paragraph1").innerHTML = ""
+        mw = mw.substring(6,1);
+    document.getElementById("paragraph1").innerHTML = mw
+  
+    }
 </script>
 
 
@@ -104,9 +115,9 @@
     
  
 <div class = "magicWord">
-    <p id="paragraph1"> 
-      <center>
-  <h3> magic </h3>
+   <center>
+     <p id="paragraph1">  
+   magic 
     </p>
   </center>
    </div>
@@ -117,7 +128,7 @@
     </div>
 
       <div class = "button3">   
-        <button id = "buttonThree" onclick = "AddEnd();"> Delete from Beginning
+        <button id = "buttonThree" onclick = "subtractBeginning();"> Delete from Beginning
         
         </button>
       </div>
@@ -139,7 +150,7 @@
         </div>
 
     <div class = "button7"> 
-  <button id = "buttonSeven"> Delete from End
+  <button id = "buttonSeven" onclick ="subtractEnd();"> Delete from End
   </button>
     </div>
     
