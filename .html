@@ -74,15 +74,20 @@
 <script>
   var currentInput = ""
   var mw = "magic" 
+  var sub = 0
+
+  
+
   function AddBeginning()
     {
          currentInput = document.getElementById("input2").value; 
-      document.getElementById("paragraph1").innerHTML = currentInput.length + "magic";
+      document.getElementById("paragraph1").innerHTML = currentInput.length + mw;
    
     }
     function AddEnd()
     {
-         currentInput = document.getElementById("input2").value; 
+          mw = "magic" +  currentInput.length 
+            currentInput = document.getElementById("input2").value; 
       document.getElementById("paragraph1").innerHTML = + "magic" + mw.length; 
   }
 
@@ -96,11 +101,15 @@
 
        function subtractEnd()
     {
+             sub = sub + 1; 
        document.getElementById("paragraph1").innerHTML = ""
-        mw = mw.substring(6,1);
+        mw = mw.substring(0,4 - sub);
     document.getElementById("paragraph1").innerHTML = mw
   
+  
     }
+
+  }
 </script>
 
 
@@ -150,7 +159,7 @@
         </div>
 
     <div class = "button7"> 
-  <button id = "buttonSeven" onclick ="subtractEnd();"> Delete from End
+  <button id = "buttonSeven" onclick ="subtractEnd();" > Delete from End
   </button>
     </div>
     
