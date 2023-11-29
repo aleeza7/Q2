@@ -1,8 +1,12 @@
 <html> 
-<head>
-  <style> 
-    body {
-   align-content: center;  
+<head> 
+<title> 
+The MagicWord
+</title>
+
+<style> 
+ body {
+       align-content: center;  
         background-color: #680000;
         color: white;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,23 +21,16 @@
 
          height: 99vh;
          width: 99vw;
-    }
+ }
 
-    .input1 {
-        grid-column-start: 1;
+.input1 {
+       grid-column-start: 1;
           grid-column-end: 3;
           grid-row-start: 2;
           grid-row-end: 4;
-          }
-    .magicWord {
- grid-column-start: 4;
-          grid-column-end: 7;
-          grid-row-start: 4;
-          grid-row-end: 6;
-      
-    }
-    
-     .button2 {
+        }
+
+ .button2 {
         grid-column-start: 3;
           grid-column-end: 5;
           grid-row-start: 2;
@@ -69,102 +66,327 @@
           grid-row-start: 3;
           grid-row-end: 4;
      }
-    
-    </style> 
-<script>
-  var currentInput = ""
-  var mw = "magic" 
-  var sub = 0
 
-  
+.resetall {
+      grid-row-start: 4; 
+       grid-row-end:  5; 
+       grid-column-start: 1; 
+       grid-column-end: 2; 
+}
 
-  function AddBeginning()
+.p1 { 
+          grid-column-start: 4;
+          grid-column-end: 7;
+          grid-row-start: 4;
+          grid-row-end: 6;
+    }
+</style> 
+
+<script> 
+
+var currentInput = ""; 
+var mw = ""; 
+var length = 0; 
+var med = 0; 
+
+
+function addBeginning() 
+{
+    currentInput = document.getElementById("a1").value; 
+    mw = currentInput + mw; 
+    document.getElementById("paragraph1").innerHTML = mw; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+    if(length==0)
     {
-         currentInput = document.getElementById("input2").value; 
-      document.getElementById("paragraph1").innerHTML = currentInput.length + mw;
+      document.getElementById("buttonSeven").disabled = true;
+      document.getElementById("buttonFive").disabled = true; 
+      document.getElementById("buttonThree").disabled = true;
+    }
+    if(length>0) {
+      document.getElementById("buttonSeven").disabled = false; 
+      document.getElementById("buttonFive").disabled = false; 
+      document.getElementById("buttonThree").disabled = false;
+    }
+    
+  
+  
+  if(length>=18) {
+    document.getElementById("buttonTwo").disabled = true; 
+    document.getElementById("buttonSix").disabled = true; 
+    document.getElementById("buttonFour").disabled = true;
+  }
+
+    if(length<18) 
+    {
+      document.getElementById("buttonTwo").disabled = false;  
+     document.getElementById("buttonSix").disabled = false;
+       document.getElementById("buttonFour").disabled = false;
+    } 
+ }
+
+function placeholder() 
+{
+    currentInput = document.getElementById("a1").value; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+    med = Math.round(length/2); 
+    mw = mw.substring(0,med) + currentInput + mw.substring(med, mw.length); 
+
+    if(length==0) {
+      document.getElementById("buttonSeven").disabled = true; 
+      document.getElementById("buttonFive").disabled = true; 
+      document.getElementById("buttonThree").disabled = true;
+    }
+    if(length>0) 
+    {
+      document.getElementById("buttonSeven").disabled = false; 
+      document.getElementById("buttonFive").disabled = false; 
+      document.getElementById("buttonThree").disabled = false;
+    }
+    if(length>=18) 
+    {
+      document.getElementById("buttonTwo").disabled = true; 
+     document.getElementById("buttonSix").disabled = true;
+     document.getElementById("buttonFour").disabled = true;
+    }
+
+    if(length<18) 
+    {
+      document.getElementById("buttonTwo").disabled = false; 
+     document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false;
+    }
+
    
+}
+
+function addeleteMiddle() { 
+    currentInput = document.getElementById("a1").value; 
+    mw = mw + currentInput; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+   
+  document.getElementById("paragraph1").innerHTML = mw; 
+    length = mw.length;
+
+    if(length==0) {
+      document.getElementById("buttonSeven").disabled = true; 
+      document.getElementById("buttonFive").disabled = true; 
+      document.getElementById("buttonThree").disabled = true;
     }
-    function AddEnd()
+  
+    if(length>0)
     {
-          mw = "magic" +  currentInput.length 
-            currentInput = document.getElementById("input2").value; 
-      document.getElementById("paragraph1").innerHTML = + "magic" + mw.length; 
+      document.getElementById("buttonSeven").disabled = false; 
+      document.getElementById("buttonFive").disabled = false; 
+      document.getElementById("buttonThree").disabled = false;
+    }
+  
+    if(length>=18) 
+    {
+  document.getElementById("buttonTwo").disabled = true; 
+  document.getElementById("buttonSix").disabled = true;
+  document.getElementById("buttonFour").disabled = true;
+    }
+
+    if(length<18) 
+    {
+      document.getElementById("buttonTwo").disabled = false; 
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false;
+    }
+}
+function inputfunction ()
+  { 
+    currentInput = document.getElementById("a1").value; 
+    if(currentInput!="") 
+    {
+      document.getElementById("buttonTwo").disabled = false;  
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false;
+    } 
+    if(length>0) 
+    {
+     document.getElementById("buttonThree").disabled = false; 
+     document.getElementById("buttonFive").disabled = false;
+     document.getElementById("buttonSeven").disabled = false;
+    }
+
+}
+
+function subtractBeginning()
+  {
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    mw = mw.substring(1);  
+    length = mw.length; 
+    if(length==0) 
+    {
+      document.getElementById("buttonSeven").disabled = true; 
+      document.getElementById("buttonFive").disabled = true;
+      document.getElementById("buttonThree").disabled = true;
+    }
+    if(length>0) 
+    {
+      document.getElementById("buttonSeven").disabled = false;
+      document.getElementById("buttonFive").disabled = false; 
+      document.getElementById("buttonThree").disabled = false;
+    }
+    if(length>=18) 
+    {
+    document.getElementById("buttonTwo").disabled = true;  
+    document.getElementById("buttonSix").disabled = true;
+    document.getElementById("buttonFour").disabled = true;
+    }
+
+    if(length<18) 
+    {
+  document.getElementById("buttonTwo").disabled = false; 
+  document.getElementById("buttonSix").disabled = false;
+  document.getElementById("buttonFour").disabled = false;
+    }
+    
+    document.getElementById("paragraph1").innerHTML = mw;
   }
 
-        function subtractBeginning()
-    {
-       document.getElementById("paragraph1").innerHTML = ""
-        mw = mw.substring(1,6);
-    document.getElementById("paragraph1").innerHTML = mw
-  
-    }
 
-       function subtractEnd()
-    {
-             sub = sub + 1; 
-       document.getElementById("paragraph1").innerHTML = ""
-        mw = mw.substring(0,4 - sub);
-    document.getElementById("paragraph1").innerHTML = mw
   
+function deleteMiddle() 
+{
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    currentInput = document.getElementById("a1").value; 
+    mw = mw.substring(0,mw.length-1); 
+    length = mw.length;
+    
   
-    }
-
+  if(length==0)
+  {
+    document.getElementById("buttonSeven").disabled = true; 
+    document.getElementById("buttonFive").disabled = true; document.getElementById("buttonThree").disabled = true;
   }
+    if(length>0) {document.getElementById("buttonSeven").disabled = false; 
+                  document.getElementById("buttonFive").disabled = false; document.getElementById("buttonThree").disabled = false;
+                 }
+    if(length>=18) 
+    {
+      document.getElementById("buttonTwo").disabled = true; 
+      document.getElementById("buttonSix").disabled = true;
+      document.getElementById("buttonFour").disabled = true;
+    }
+
+    if(length<18)
+    {
+      document.getElementById("buttonTwo").disabled = false; 
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false; 
+    }
+      document.getElementById("paragraph1").innerHTML = mw; 
+}
+
+function clearallofit() {
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+   mw = ""; 
+   document.getElementById("paragraph1").innerHTML = mw;
+   length = 0; 
+   function subtractMiddle() { 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+    med = Math.round(length/2); 
+    mw = mw.substring(0,med - 1) + mw.substring(med, mw.length); 
+
+    if(length==0) 
+    {
+      document.getElementById("buttonSeven").disabled = true;
+      document.getElementById("buttonFive").disabled = true;
+      document.getElementById("buttonThree").disabled = true;
+    }
+   
+  if(length>0) {
+    document.getElementById("buttonSeven").disabled = false; 
+    document.getElementById("buttonFive").disabled = false; 
+    document.getElementById("buttonThree").disabled = false;
+  }
+    if(length>=18) 
+    {
+      document.getElementById("buttonTwo").disabled = true; 
+      document.getElementById("buttonSix").disabled = true;
+     document.getElementById("buttonFour").disabled = true;
+    }
+
+    if(length<18) 
+    {
+      document.getElementById("buttonTwo").disabled = false; 
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false; 
+    }
+
+    document.getElementById("paragraph1").innerHTML = mw;
+}
+}
 </script>
+</head>
+<body> <body style="background-color: black;">
+    <div class="p1" id="paragraph1">
+        <p>The Magic Word </p> <br> <br> 
+    </div>
 
+    <div class="input1"> 
+ <input id="a1" maxlength="1" size="10" style="height: 30px" onkeyup="inputfunction()"> </h10>
+    </div>
+
+    <div class="button2"> 
+        <button id="buttonTwo" onclick="addBeginning()" style="height: 70px" style="width: 400px" disabled="true"> Add Beginning </button>
+    </div>
+  
+    <div class="button3"> 
+        <button id="buttonThree" onclick="subtractBeginning()" style="height: 70px" style="width: 400px" disabled ="true"> 
+          Delete Beginning 
+        </button>
+    </div>
+  
+    <div class="button4">
+        <button id="buttonFour" onclick="placeholder()" style="height: 70px" style="width: 400px" disabled="true"> 
+          Add Middle 
+        </button>
+    </div>
+
+    <div class="button6">
+        <button id="buttonSix" onclick="addeleteMiddle()" style="height: 70px" style="width: 400px" disabled="true">
+          Add End
+        </button>
+    </div>
+
+
+
+    <div class="button5">
+        <button id="buttonFive" onclick="subtractMiddle()" style="height: 70px" style="width: 400px" disabled ="true"> 
+          Delete Middle
+        </button>
+
+    </div>
+
+    <div class="button7"> 
+        <button id="buttonSeven" onclick="deleteMiddle()" style="height: 70px" style="width: 400px" disabled="true">
+          Delete End
+        </button>
+    </div>
+
+    <div class="resetall"> 
+       <button id="reset" onclick="clearallofit()" style="height: 20px" style="width: 700px"> 
+         Reset 
+       </button>
+    </div>
 
   
-</head>
-  <body font-size = 70px>
 
-    <div class = "input1">
-    <input id="input2" maxlength="1">
 
-    </div> 
-    
- 
-<div class = "magicWord">
-   <center>
-     <p id="paragraph1">  
-   magic 
-    </p>
-  </center>
-   </div>
 
-    <div class = "button2">
-      <button id = "buttonTwo" onclick = "AddBeginning();"> Add to Beginning
-      </button>
-    </div>
+</body>
 
-      <div class = "button3">   
-        <button id = "buttonThree" onclick = "subtractBeginning();"> Delete from Beginning
-        
-        </button>
-      </div>
-
-      <div class = "button4">
-        <button id = "buttonFour"> Add to Middle
-          
-        </button>
-      </div>
-     
-    <div class = "button5">
-      <button id = "buttonFive"> Delete from Middle
-      </button>
-    </div>
-
-        <div class = "button6"> 
-          <button id = "buttonSix"> Add to End 
-          </button>
-        </div>
-
-    <div class = "button7"> 
-  <button id = "buttonSeven" onclick ="subtractEnd();" > Delete from End
-  </button>
-    </div>
-    
-    
-
-    
-  </body>
 </html>
