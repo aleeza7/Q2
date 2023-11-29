@@ -98,18 +98,19 @@ function addBeginning()
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
+   if(length>0) {
+      document.getElementById("buttonSeven").disabled = false; 
+      document.getElementById("buttonFive").disabled = false; 
+      document.getElementById("buttonThree").disabled = false;
+    }
+    
     if(length==0)
     {
       document.getElementById("buttonSeven").disabled = true;
       document.getElementById("buttonFive").disabled = true; 
       document.getElementById("buttonThree").disabled = true;
     }
-    if(length>0) {
-      document.getElementById("buttonSeven").disabled = false; 
-      document.getElementById("buttonFive").disabled = false; 
-      document.getElementById("buttonThree").disabled = false;
-    }
-    
+  
   
   
   if(length>=18) {
@@ -268,16 +269,17 @@ function deleteMiddle()
     document.getElementById("buttonSeven").disabled = true; 
     document.getElementById("buttonFive").disabled = true; document.getElementById("buttonThree").disabled = true;
   }
-    if(length>0) {document.getElementById("buttonSeven").disabled = false; 
-                  document.getElementById("buttonFive").disabled = false; document.getElementById("buttonThree").disabled = false;
-                 }
-    if(length>=18) 
+   if(length>=18) 
     {
       document.getElementById("buttonTwo").disabled = true; 
       document.getElementById("buttonSix").disabled = true;
       document.getElementById("buttonFour").disabled = true;
     }
 
+    if(length>0) {document.getElementById("buttonSeven").disabled = false; 
+                  document.getElementById("buttonFive").disabled = false; document.getElementById("buttonThree").disabled = false;
+                 }
+  
     if(length<18)
     {
       document.getElementById("buttonTwo").disabled = false; 
