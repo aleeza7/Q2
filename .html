@@ -207,14 +207,13 @@ function substractend()
  
  function subtractMiddle()
   { 
-   controls();
+ controls();
+    currentInput = document.getElementById("a1").value; 
+    mw = mw + currentInput; 
+    document.getElementById("p1").innerHTML = mw; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
-    middle = Math.round(length/2); 
-    mw = mw.substring(0,middle - 1) + mw.substring(middle, mw.length); 
-  
-    document.getElementById("p1").innerHTML = mw;
 
 
 
