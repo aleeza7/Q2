@@ -17,7 +17,7 @@ Magic Word
 
          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
-         gap: 10px;
+         gap 10px;
 
          height: 99vh;
          width: 99vw;
@@ -74,7 +74,7 @@ Magic Word
        grid-column-end: 2; 
 }
 
-.p1 { 
+.p12 { 
           grid-column-start: 4;
           grid-column-end: 7;
           grid-row-start: 5;
@@ -92,7 +92,7 @@ var middle = 0;
 function controls()
  {
   inputText = document.getElementById("p1").value;
-  magicWordLength = currentinput.length;
+  length = currentInput.length;
   if(length==0)
   {
     document.getElementById("buttonSeven").disabled = true; 
@@ -121,43 +121,49 @@ function controls()
  }
 function addBeginning() 
 {
- 
+
+  controls();
     currentInput = document.getElementById("a1").value; 
-    mw = mw + currentInput; 
-    document.getElementById("paragraph1").innerHTML = mw; 
+    mw = currentInput + mw; 
+    document.getElementById("p1").innerHTML = mw; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
-  controls() 
+ 
  }
 
 function placeholder() 
 {
+  controls();
     currentInput = document.getElementById("a1").value; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
     middle = Math.round(length/2); 
     mw = mw.substring(0,middle) + currentInput + mw.substring(middle, mw.length); 
-   controls()
+  document.getElementById("p1").innerHTML = mw;
+ 
    
 }
 
 function substractend() 
 { 
+  controls();
     currentInput = document.getElementById("a1").value; 
     mw = mw + currentInput; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
    
-  document.getElementById("paragraph1").innerHTML = mw; 
+  
     length = mw.length;
-
-  controls()
+document.getElementById("p1").innerHTML = mw; 
+ 
 }
 function inputfunction ()
   { 
+   controls();
     currentInput = document.getElementById("a1").value; 
+   length = currentInput.length;
    
    if(currentInput=="") 
     {
@@ -171,55 +177,62 @@ function inputfunction ()
      document.getElementById("buttonFive").disabled = false;
      document.getElementById("buttonSeven").disabled = false;
     }
-controls()
+
 }
 
 function subtractBeginning()
   {
+   controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     mw = mw.substring(1);  
     length = mw.length; 
-     control()
+   document.getElementById("p1").innerHTML = mw;
+  }
 
   
 function substractend() 
 {
+ controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     currentInput = document.getElementById("a1").value; 
     mw = mw.substring(0,mw.length-1); 
     length = mw.length; 
-     control()
-      document.getElementById("paragraph1").innerHTML = mw; 
+   
+      document.getElementById("p1").innerHTML = mw; 
 }
 
-   
+   function addEnd() 
+ 
  function subtractMiddle()
   { 
+   controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
     middle = Math.round(length/2); 
     mw = mw.substring(0,middle - 1) + mw.substring(middle, mw.length); 
-   control()
-    document.getElementById("paragraph1").innerHTML = mw;
+  
+    document.getElementById("p1").innerHTML = mw;
+
+
 
 }
-       }
+ 
 
         
  
 </script>
 </head>
-<body> <body style="background-color: green;">
+<body> <body style="background-color: rgb(240, 171, 240);">
 
-    <div class="p1" id="paragraph1">
+    <div class="p12" id="p1">
         
     </div>
 
     <div class="input1"> 
- <input id="a1" maxlength="1" style="height: 40px" onkeyup= "inputfunction()"> 
+ <input id="a1" maxlength="1" style="height: 40px" onkeyup="inputfunction()"> 
     </div>
 
     <div class="button2"> 
@@ -239,7 +252,7 @@ function substractend()
     </div>
 
     <div class="button6">
-        <button id="buttonSix" onclick="substractend()" style="height: 40px" style="width: 200px" disabled="true">
+        <button id="buttonSix" onclick="addEnd()" style="height: 40px" style="width: 200px" disabled="true">
           Add End
         </button>
     </div>
